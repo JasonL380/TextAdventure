@@ -47,62 +47,55 @@ Room* RoomN_Build()
 }
 
 
-/* TODO REQUIRED: Build room 0 */
 Room* Room0_Build()
 {
 	/* Pre-declare a room pointer which we will use to build the new room */
 	Room* room = NULL;
 
-	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
-	"This is room 0. It is a display room with a cage in the middle. You can see a jeweled egg inside the cage.  There is a crack in the west wall, but you can't fit through it from this side.\n" */
+	room = Room_Create("This is room 0. It is a display room with a cage in the middle. You can see a jeweled egg inside the cage.  There is a crack in the west wall, but you can't fit through it from this side.\n");
 
-	/* TODO REQUIRED: Add an Exit "north" to Room 1 */
-	/* TODO BASIC: Add room exit shortcut for "n" */
+    Room_AddRoomExit(room, "north", 1);
+    Room_AddRoomExitShortcut(room, "n", 1);
 
-	/* TODO REQUIRED: add an exit door to the list of items in the room, ExitDoor_Build() */
-
-	/* TODO ADVANCED: (not required) update the description and add a room exit to the "east" */
+    ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 
 	/* return the new room */
 	return room;
 }
 
 
-/* TODO REQUIRED: Build room 1 */
 Room* Room1_Build()
 {
 	/* Pre-declare a room pointer which we will use to build the new room */
 	Room* room = NULL;
 
-	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
-	"This is room 1.  There is a large mirror here, and it shimmers as you approach.\n" */
+	room = Room_Create("This is room 1.  There is a large mirror here, and it shimmers as you approach.\n");
 
-	/* TODO REQUIRED: Add an Exit "through the mirror" to Room 2 */
-	/* TODO BASIC: Add exit shortcuts for "through mirror" and "mirror" */
+    Room_AddRoomExit(room, "through the mirror", 2);
+    Room_AddRoomExitShortcut(room, "through mirror", 2);
+    Room_AddRoomExitShortcut(room, "mirror", 2);
 
-	/* TODO REQUIRED: Add an Exit "south" back to Room 0 */
-	/* TODO BASIC: Add room exit shortcut for "s" */
+    Room_AddRoomExit(room, "south", 0);
 
-	/* TODO REQUIRED: Add a brick to the list of items in the room */
+    Room_AddRoomExitShortcut(room, "s", 0);
+
+    ItemList_AddItem(Room_GetItemList(room), Brick_Build());
 
 	/* return the new room */
 	return room;
 }
 
 
-/* TODO REQUIRED: Build room 2 */
 Room* Room2_Build()
 {
-	/* TODO: Pre-declare a room pointer which we will use to build the new room */
-	Room* room = NULL;
+	Room* room;
 
-	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
-	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n");
 
-	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
-	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
+    Room_AddRoomExit(room, "east", 0);
+    Room_AddRoomExitShortcut(room, "e", 0);
 
-	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+    ItemList_AddItem(Room_GetItemList(room), GoldPiece_Build());
 
 	/* return the new room */
 	return room;
@@ -123,7 +116,7 @@ WorldData* CreateInitialWorldData()
 
 	/* TODO REQUIRED: update room count to match the number of rooms you have created and added to the world
 	   if this number doesn't match then your game will either crash or you will end up stuck in a broken room with no exits */
-	int roomCount = 1;
+	int roomCount = 4;
 
 	/* create the new WorldData object with 3 rooms */
 	worldData = WorldData_Create("Welcome to my GAM100 Game!\n\n", roomCount);
@@ -133,7 +126,6 @@ WorldData* CreateInitialWorldData()
     WorldData_SetRoom(worldData, 1, Room1_Build());
     WorldData_SetRoom(worldData, 2, Room2_Build());
 
-	/* TODO ADVANCED: add additional advanced rooms */
 
 	/* return the new object */
 	return worldData;
