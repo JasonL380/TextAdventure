@@ -52,7 +52,7 @@ Room* Room_Start_Build()
 	/* Pre-declare a room pointer which we will use to build the new room */
 	Room* room = NULL;
 
-	room = Room_Create("You have been trapped in a dungeon of riddles. There are three paths ahead of you, eahc with their own key. However, you must figure out the rule to proceed in each room.\n");
+	room = Room_Create("You have been trapped in a dungeon of riddles. There are three paths ahead of you, each with their own key. However, you must figure out the rule to proceed in each room.\n");
 
     Room_AddRoomExit(room, "north", 1);
     Room_AddRoomExitShortcut(room, "n", 1);
@@ -64,7 +64,7 @@ Room* Room_Start_Build()
 }
 
 
-Room* Room1_Build()
+Room* Path_1_1_Build()
 {
 	/* Pre-declare a room pointer which we will use to build the new room */
 	Room* room = NULL;
@@ -85,8 +85,50 @@ Room* Room1_Build()
 	return room;
 }
 
+Room* Path_1_2_Build()
+{
+	/* Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
 
-Room* Room2_Build()
+	room = Room_Create("This is room 1.  There is a large mirror here, and it shimmers as you approach.\n");
+
+	Room_AddRoomExit(room, "through the mirror", 2);
+	Room_AddRoomExitShortcut(room, "through mirror", 2);
+	Room_AddRoomExitShortcut(room, "mirror", 2);
+
+	Room_AddRoomExit(room, "south", 0);
+
+	Room_AddRoomExitShortcut(room, "s", 0);
+
+	ItemList_AddItem(Room_GetItemList(room), Brick_Build());
+
+	/* return the new room */
+	return room;
+}
+
+Room* Path_1_3_Build()
+{
+	/* Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	room = Room_Create("This is room 1.  There is a large mirror here, and it shimmers as you approach.\n");
+
+	Room_AddRoomExit(room, "through the mirror", 2);
+	Room_AddRoomExitShortcut(room, "through mirror", 2);
+	Room_AddRoomExitShortcut(room, "mirror", 2);
+
+	Room_AddRoomExit(room, "south", 0);
+
+	Room_AddRoomExitShortcut(room, "s", 0);
+
+	ItemList_AddItem(Room_GetItemList(room), Brick_Build());
+
+	/* return the new room */
+	return room;
+}
+
+
+Room* Path_2_1_Build()
 {
 	Room* room;
 
@@ -96,6 +138,81 @@ Room* Room2_Build()
     Room_AddRoomExitShortcut(room, "e", 0);
 
     ItemList_AddItem(Room_GetItemList(room), GoldPiece_Build());
+
+	/* return the new room */
+	return room;
+}
+
+Room* Path_2_2_Build()
+{
+	Room* room;
+
+	room = Room_Create("This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n");
+
+	Room_AddRoomExit(room, "east", 0);
+	Room_AddRoomExitShortcut(room, "e", 0);
+
+	ItemList_AddItem(Room_GetItemList(room), GoldPiece_Build());
+
+	/* return the new room */
+	return room;
+}
+
+Room* Path_2_3_Build()
+{
+	Room* room;
+
+	room = Room_Create("This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n");
+
+	Room_AddRoomExit(room, "east", 0);
+	Room_AddRoomExitShortcut(room, "e", 0);
+
+	ItemList_AddItem(Room_GetItemList(room), GoldPiece_Build());
+
+	/* return the new room */
+	return room;
+}
+
+Room* Path_3_1_Build()
+{
+	Room* room;
+
+	room = Room_Create("This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n");
+
+	Room_AddRoomExit(room, "east", 0);
+	Room_AddRoomExitShortcut(room, "e", 0);
+
+	ItemList_AddItem(Room_GetItemList(room), GoldPiece_Build());
+
+	/* return the new room */
+	return room;
+}
+
+Room* Path_3_2_Build()
+{
+	Room* room;
+
+	room = Room_Create("This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n");
+
+	Room_AddRoomExit(room, "east", 0);
+	Room_AddRoomExitShortcut(room, "e", 0);
+
+	ItemList_AddItem(Room_GetItemList(room), GoldPiece_Build());
+
+	/* return the new room */
+	return room;
+}
+
+Room* Path_3_3_Build()
+{
+	Room* room;
+
+	room = Room_Create("This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n");
+
+	Room_AddRoomExit(room, "east", 0);
+	Room_AddRoomExitShortcut(room, "e", 0);
+
+	ItemList_AddItem(Room_GetItemList(room), GoldPiece_Build());
 
 	/* return the new room */
 	return room;
@@ -122,9 +239,19 @@ WorldData* CreateInitialWorldData()
 	worldData = WorldData_Create("Welcome to my GAM100 Game!\n\n", roomCount);
 
 	/* build each room and assign them to the world data */
-	WorldData_SetRoom(worldData, 0, RoomN_Build());
-    WorldData_SetRoom(worldData, 1, Room1_Build());
-    WorldData_SetRoom(worldData, 2, Room2_Build());
+	WorldData_SetRoom(worldData, 0, Room_Start_Build());
+
+    WorldData_SetRoom(worldData, 1, Path_1_1_Build());
+	WorldData_SetRoom(worldData, 2, Path_1_2_Build());
+	WorldData_SetRoom(worldData, 3, Path_1_3_Build());
+
+	WorldData_SetRoom(worldData, 4, Path_2_1_Build());
+	WorldData_SetRoom(worldData, 5, Path_2_2_Build());
+	WorldData_SetRoom(worldData, 6, Path_2_3_Build());
+
+	WorldData_SetRoom(worldData, 7, Path_3_1_Build());
+	WorldData_SetRoom(worldData, 8, Path_3_2_Build());
+	WorldData_SetRoom(worldData, 9, Path_3_3_Build());
 
 
 	/* return the new object */
