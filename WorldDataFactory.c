@@ -47,12 +47,12 @@ Room* RoomN_Build()
 }
 
 
-Room* Room0_Build()
+Room* Room_Start_Build()
 {
 	/* Pre-declare a room pointer which we will use to build the new room */
 	Room* room = NULL;
 
-	room = Room_Create("This is room 0. It is a display room with a cage in the middle. You can see a jeweled egg inside the cage.  There is a crack in the west wall, but you can't fit through it from this side.\n");
+	room = Room_Create("You have been trapped in a dungeon of riddles. There are three paths ahead of you, eahc with their own key. However, you must figure out the rule to proceed in each room.\n");
 
     Room_AddRoomExit(room, "north", 1);
     Room_AddRoomExitShortcut(room, "n", 1);
