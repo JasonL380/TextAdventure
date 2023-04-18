@@ -85,6 +85,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Source\BrickFunctions.h" />
+    <ClInclude Include="Source\CircleKeyFunctions.h" />
     <ClInclude Include="Source\CommandContext.h" />
     <ClInclude Include="Source\CommandData.h" />
     <ClInclude Include="Source\CommandHandler.h" />
@@ -120,6 +121,7 @@
     <ClCompile Include="CommandListFactory.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Source\BrickFunctions.c" />
+    <ClCompile Include="Source\CircleKeyFunctions.c" />
     <ClCompile Include="Source\CommandHandler.c" />
     <ClCompile Include="Source\CommandList.c" />
     <ClCompile Include="Source\DropCommandHandler.c" />
