@@ -8,9 +8,6 @@ Brief Description:
 This file implements the main function and game loop.
 
 ******************************************************************************/
-#ifndef _WIN32
-#include "Source/s_functions.h"
-#endif
 
 #include "Source/stdafx.h" /* NULL, bool */
 #include "Source/InputProvider.h" /* GetDefaultInputFunc, ParseCommand */

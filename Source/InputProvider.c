@@ -8,9 +8,6 @@ Brief Description:
 This file implements the InputParser, turning user input into verbs and nouns.
 
 ******************************************************************************/
-#ifndef _WIN32
-#include "s_functions.h"
-#endif
 #include "stdafx.h" /* NULL, strtok_s */
 #include "InputProvider.h" /* Function declarations */
 #include "CommandData.h" /* MAX_INPUT_LENGTH */

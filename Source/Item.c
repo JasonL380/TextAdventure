@@ -8,9 +8,6 @@ Brief Description:
 This file defines the Item interface, which is used to manage items in the game.
 
 ******************************************************************************/
-#ifndef _WIN32
-#include "s_functions.h"
-#endif
 #include "stdafx.h" /* NULL, printf, malloc/free, strcpy_s */
 #include "Item.h" /* Function declarations */
 

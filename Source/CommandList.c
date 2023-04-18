@@ -9,10 +9,6 @@ This file implements the CommandList, which holds all supported commands and
 their related functions.
 
 ******************************************************************************/
-#ifndef _WIN32
-#include "s_functions.h"
-#endif
-
 #include "stdafx.h" /* NULL, malloc/free, strcpy_s, printf */
 #include "CommandList.h" /* Function and type declarations */
 #include "CommandData.h" /* MAX_COMMAND_VERB_LENGTH */

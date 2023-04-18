@@ -9,10 +9,6 @@ This file defines the RoomExit interface, which is used to manage room exits
 in the game.
 
 ******************************************************************************/
-#ifndef _WIN32
-#include "s_functions.h"
-#endif
-
 #include "stdafx.h" /* NULL, printf, malloc/free, strcpy_s, strcmp */
 #include "RoomExit.h" /* Function declarations */
 

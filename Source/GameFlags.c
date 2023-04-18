@@ -9,9 +9,6 @@ This file defines the GameFlags interface, which is used to set and read
 arbitrary game state.
 
 ******************************************************************************/
-#ifndef _WIN32
-#include "s_functions.h"
-#endif
 #include "stdafx.h" /* NULL, malloc/free, strcpy_s, strcmp */
 #include "GameFlags.h" /* Function declarations */
 

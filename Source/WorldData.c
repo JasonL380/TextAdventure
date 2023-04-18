@@ -10,10 +10,6 @@ set of data in the game world.  This data is typically static, but it may
 not entirely be so.
 
 ******************************************************************************/
-#ifndef _WIN32
-#include "s_functions.h"
-#endif
-
 #include "stdafx.h" /* NULL, malloc/free, printf, strcpy_s */
 #include "WorldData.h" /* Function declarations */
 #include "Room.h" /* Room_Print */

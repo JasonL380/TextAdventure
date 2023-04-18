@@ -8,9 +8,6 @@ Brief Description:
 This file defines the Room interface, which is used to manage rooms in the game.
 
 ******************************************************************************/
-#ifndef _WIN32
-#include "s_functions.h"
-#endif
 #include "stdafx.h" /* NULL, malloc/free, printf, strcpy_s */
 #include "Room.h" /* Function declarations */
 #include "RoomExit.h" /* RoomExit_Add, RoomExit_Free, RoomExit_Print */

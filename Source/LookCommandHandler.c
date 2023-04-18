@@ -9,9 +9,6 @@ This file defines functions that handle the "look" user command, which outputs
 a description of an item or the current room.
 
 ******************************************************************************/
-#ifndef _WIN32
-#include "s_functions.h"
-#endif
 #include "stdafx.h" /* NULL, printf, strnlen_s */
 #include "LookCommandHandler.h" /* Function declarations */
 #include "CommandData.h" /* struct CommandData */
