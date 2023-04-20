@@ -10,7 +10,7 @@
 
 
 /* Helper: The action performed when the key is taken. */
-void Circle_Key_Take(CommandContext context, GameState* gameState, WorldData* worldData)
+void Tri_Key_Take(CommandContext context, GameState* gameState, WorldData* worldData)
 {
 	/* avoid W4 warnings on unused parameters - this function conforms to a function typedef */
 	UNREFERENCED_PARAMETER(context);
@@ -23,7 +23,7 @@ void Circle_Key_Take(CommandContext context, GameState* gameState, WorldData* wo
 
 
 /* Helper: The action performed when the key is used. */
-void Circle_Key_Use(CommandContext context, GameState* gameState, WorldData* worldData)
+void Tri_Key_Use(CommandContext context, GameState* gameState, WorldData* worldData)
 {
 	Room* room; /* The current room */
 	ItemList** roomItemsPtr; /* The list of items in the current room */
@@ -52,7 +52,7 @@ void Circle_Key_Use(CommandContext context, GameState* gameState, WorldData* wor
 	}
 
 	/* check if the cage has already been broken and scored */
-	if (GameFlags_IsInList(gameState->gameFlags, "circleKeyUsed"))
+	if (GameFlags_IsInList(gameState->gameFlags, "triKeyUsed"))
 	{
 		/* the player already used the key - inform the user of the problem and take no action */
 		printf("You already used the key.\n");
@@ -71,7 +71,7 @@ void Circle_Key_Use(CommandContext context, GameState* gameState, WorldData* wor
 		}
 
 		/* Find the key in the player's inventory - it should be there, since we are in the Inventory context */
-		key = ItemList_FindItem(gameState->inventory, "CircleKey");
+		key = ItemList_FindItem(gameState->inventory, "TriKey");
 
 		/* Remove the key from the user's inventory - they won't need it again */
 		gameState->inventory = ItemList_Remove(gameState->inventory, key);
@@ -83,8 +83,7 @@ void Circle_Key_Use(CommandContext context, GameState* gameState, WorldData* wor
 		GameState_ChangeScore(gameState, 100);
 
 		/* the gold piece has not been scored, so mark the flag */
-		gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "circleKeyUsed");
-
+		gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "triKeyUsed");
 		if (GameFlags_IsInList(gameState->gameFlags, "circleKeyUsed") && GameFlags_IsInList(gameState->gameFlags, "squareKeyUsed") && GameFlags_IsInList(gameState->gameFlags, "triKeyUsed"))
 		{
 			GameState_EndGame(gameState, "As all the keys turn to dust on the floor, the exit opens and you run out, escaping the dungeon.\n");
@@ -94,8 +93,8 @@ void Circle_Key_Use(CommandContext context, GameState* gameState, WorldData* wor
 
 
 /* Build a "key" object */
-Item* Circle_Key_Build()
+Item* Tri_Key_Build()
 {
 	/* Create a "key" item, using the functions defined in this file */
-	return Item_Create("circle key", "A small smooth gem, completely transparent", true, Circle_Key_Use, Circle_Key_Take, NULL);
+	return Item_Create("tri key", "A small smooth gem, completely transparent", true, Tri_Key_Use, Tri_Key_Take, NULL);
 }

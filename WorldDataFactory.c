@@ -18,6 +18,8 @@ This could be used to create default states as well as loaded state.
 #include "Source/BrickFunctions.h" /* Brick_Build */
 #include "Source/GoldPieceFunctions.h" /* GoldPiece_Build */
 #include "Source/CircleKeyFunctions.h" /* Circle_Key_Build */
+#include "Source/SquareKeyFunctions.h" /* Square_Key_Build */
+#include "Source/TriKeyFunctions.h" /* Tri_Key_Build */
 #include "Source/ExitDoorFunctions.h" /* ExitDoor_Build */
 
 
@@ -165,6 +167,8 @@ Room* Path_13_mid_Build()
 	Room_AddRoomExitShortcut(room, "n", 2);
 
 	ItemList_AddItem(Room_GetItemList(room), Circle_Key_Build());
+	ItemList_AddItem(Room_GetItemList(room), Square_Key_Build());
+	ItemList_AddItem(Room_GetItemList(room), Tri_Key_Build());
 
 	/* return the new room */
 	return room;
