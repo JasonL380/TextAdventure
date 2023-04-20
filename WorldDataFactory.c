@@ -120,8 +120,6 @@ Room* Path_1_2_Build()
 	Room_AddRoomExit(room, "north", 1);
 	Room_AddRoomExitShortcut(room, "n", 1);
 
-	ItemList_AddItem(Room_GetItemList(room), Brick_Build());
-
 	/* return the new room */
 	return room;
 }
