@@ -233,7 +233,7 @@ Room* Path_3_1_Build()
 	Room_AddRoomExit(room, "west", 0);
 	Room_AddRoomExitShortcut(room, "west", 0);
 
-	Room_AddRoomExitShortcut(room, "5", 10);
+	Room_AddRoomExitShortcut(room, "5", 13);
 
 	ItemList_AddItem(Room_GetItemList(room), Match_Build());
 
@@ -266,7 +266,7 @@ Room* Path_3_2_Build()
 	Room_AddRoomExit(room, "west", 7);
 	Room_AddRoomExitShortcut(room, "w", 7);
 
-	Room_AddRoomExitShortcut(room, "16", 11);
+	Room_AddRoomExitShortcut(room, "16", 14);
 
 	ItemList_AddItem(Room_GetItemList(room), Match_Build());
 
@@ -299,7 +299,7 @@ Room* Path_3_3_Build()
 	Room_AddRoomExit(room, "west", 8);
 	Room_AddRoomExitShortcut(room, "w", 8);
 
-	Room_AddRoomExitShortcut(room, "8", 12);
+	Room_AddRoomExitShortcut(room, "8", 15);
 
 	ItemList_AddItem(Room_GetItemList(room), Match_Build());
 
@@ -337,7 +337,7 @@ WorldData* CreateInitialWorldData()
 
 	/* TODO REQUIRED: update room count to match the number of rooms you have created and added to the world
 	   if this number doesn't match then your game will either crash or you will end up stuck in a broken room with no exits */
-	int roomCount = 13;
+	int roomCount = 16;
 
 	/* create the new WorldData object with 3 rooms */
 	worldData = WorldData_Create("Welcome to my GAM100 Game!\n\n", roomCount);
@@ -349,10 +349,6 @@ WorldData* CreateInitialWorldData()
 	WorldData_SetRoom(worldData, 2, Path_1_2_Build());
 	WorldData_SetRoom(worldData, 3, Path_1_3_Build());
 
-	WorldData_SetRoom(worldData, 10, Path_11_mid_Build());
-	WorldData_SetRoom(worldData, 11, Path_12_mid_Build());
-	WorldData_SetRoom(worldData, 12, Path_13_mid_Build());
-
 	WorldData_SetRoom(worldData, 4, Path_2_1_Build());
 	WorldData_SetRoom(worldData, 5, Path_2_2_Build());
 	WorldData_SetRoom(worldData, 6, Path_2_3_Build());
@@ -361,9 +357,17 @@ WorldData* CreateInitialWorldData()
 	WorldData_SetRoom(worldData, 8, Path_3_2_Build());
 	WorldData_SetRoom(worldData, 9, Path_3_3_Build());
 
-	WorldData_SetRoom(worldData, 10, Answer_3_1_Build());
-	WorldData_SetRoom(worldData, 11, Answer_3_2_Build());
-	WorldData_SetRoom(worldData, 12, Answer_3_3_Build());
+	WorldData_SetRoom(worldData, 10, Path_11_mid_Build());
+	WorldData_SetRoom(worldData, 11, Path_12_mid_Build());
+	WorldData_SetRoom(worldData, 12, Path_13_mid_Build());
+
+	//WorldData_SetRoom(worldData, 13, Answer_2_1_Build());
+	//WorldData_SetRoom(worldData, 14, Answer_2_2_Build());
+	//WorldData_SetRoom(worldData, 15, Answer_2_3_Build());
+
+	WorldData_SetRoom(worldData, 13, Answer_3_1_Build());
+	WorldData_SetRoom(worldData, 14, Answer_3_2_Build());
+	WorldData_SetRoom(worldData, 15, Answer_3_3_Build());
 
 
 	/* return the new object */
