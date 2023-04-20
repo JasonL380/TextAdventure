@@ -106,6 +106,7 @@
     <ClInclude Include="Source\Item.h" />
     <ClInclude Include="Source\ItemList.h" />
     <ClInclude Include="Source\LookCommandHandler.h" />
+    <ClInclude Include="Source\MatchFunctions.h" />
     <ClInclude Include="Source\QuitCommandHandler.h" />
     <ClInclude Include="Source\Room.h" />
     <ClInclude Include="Source\RoomExit.h" />
@@ -136,6 +137,7 @@
     <ClCompile Include="Source\Item.c" />
     <ClCompile Include="Source\ItemList.c" />
     <ClCompile Include="Source\LookCommandHandler.c" />
+    <ClCompile Include="Source\MatchFunctions.c" />
     <ClCompile Include="Source\QuitCommandHandler.c" />
     <ClCompile Include="Source\Room.c" />
     <ClCompile Include="Source\RoomExit.c" />

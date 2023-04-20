@@ -18,6 +18,7 @@ This could be used to create default states as well as loaded state.
 #include "Source/BrickFunctions.h" /* Brick_Build */
 #include "Source/GoldPieceFunctions.h" /* GoldPiece_Build */
 #include "Source/ExitDoorFunctions.h" /* ExitDoor_Build */
+#include "Source/MatchFunctions.h" 
 
 
 
@@ -58,6 +59,9 @@ Room* Room_Start_Build()
     Room_AddRoomExitShortcut(room, "n", 1);
 
     ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+
+	Room_AddRoomExit(room, "east", 7);
+	Room_AddRoomExitShortcut(room, "e", 7);
 
 	/* return the new room */
 	return room;
@@ -178,12 +182,30 @@ Room* Path_3_1_Build()
 {
 	Room* room;
 
-	room = Room_Create("This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n");
+	room = Room_Create("You enter a dark room with an unlit torch on the wall.\n");
 
-	Room_AddRoomExit(room, "east", 0);
-	Room_AddRoomExitShortcut(room, "e", 0);
+	Room_AddRoomExit(room, "west", 0);
+	Room_AddRoomExitShortcut(room, "west", 0);
 
-	ItemList_AddItem(Room_GetItemList(room), GoldPiece_Build());
+	Room_AddRoomExitShortcut(room, "5", 10);
+
+	ItemList_AddItem(Room_GetItemList(room), Match_Build());
+
+	/* return the new room */
+	return room;
+}
+
+Room* Answer_3_1_Build()
+{
+	Room* room;
+
+	room = Room_Create("The back wall mysteriously crumbles.\n");
+
+	Room_AddRoomExit(room, "west", 7);
+	Room_AddRoomExitShortcut(room, "west", 7);
+
+	Room_AddRoomExit(room, "east", 8);
+	Room_AddRoomExitShortcut(room, "e", 8);
 
 	/* return the new room */
 	return room;
@@ -193,12 +215,30 @@ Room* Path_3_2_Build()
 {
 	Room* room;
 
-	room = Room_Create("This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n");
+	room = Room_Create("You enter a dark room with an unlit torch on the wall.\n");
 
-	Room_AddRoomExit(room, "east", 0);
-	Room_AddRoomExitShortcut(room, "e", 0);
+	Room_AddRoomExit(room, "west", 7);
+	Room_AddRoomExitShortcut(room, "w", 7);
 
-	ItemList_AddItem(Room_GetItemList(room), GoldPiece_Build());
+	Room_AddRoomExitShortcut(room, "16", 11);
+
+	ItemList_AddItem(Room_GetItemList(room), Match_Build());
+
+	/* return the new room */
+	return room;
+}
+
+Room* Answer_3_2_Build()
+{
+	Room* room;
+
+	room = Room_Create("The back wall mysteriously crumbles.\n");
+
+	Room_AddRoomExit(room, "west", 8);
+	Room_AddRoomExitShortcut(room, "w", 8);
+
+	Room_AddRoomExit(room, "east", 9);
+	Room_AddRoomExitShortcut(room, "e", 9);
 
 	/* return the new room */
 	return room;
@@ -208,16 +248,33 @@ Room* Path_3_3_Build()
 {
 	Room* room;
 
-	room = Room_Create("This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n");
+	room = Room_Create("You enter a dark room with an unlit torch on the wall.\n");
 
-	Room_AddRoomExit(room, "east", 0);
-	Room_AddRoomExitShortcut(room, "e", 0);
+	Room_AddRoomExit(room, "west", 8);
+	Room_AddRoomExitShortcut(room, "w", 8);
 
-	ItemList_AddItem(Room_GetItemList(room), GoldPiece_Build());
+	Room_AddRoomExitShortcut(room, "8", 12);
+
+	ItemList_AddItem(Room_GetItemList(room), Match_Build());
 
 	/* return the new room */
 	return room;
 }
+
+Room* Answer_3_3_Build()
+{
+	Room* room;
+
+	room = Room_Create("\n");
+	// add text for key and add key item
+
+	Room_AddRoomExit(room, "east", 8);
+	Room_AddRoomExitShortcut(room, "e", 8);
+
+	/* return the new room */
+	return room;
+}
+
 
 
 /* TODO ADVANCED: Build room 3 */
@@ -234,7 +291,7 @@ WorldData* CreateInitialWorldData()
 
 	/* TODO REQUIRED: update room count to match the number of rooms you have created and added to the world
 	   if this number doesn't match then your game will either crash or you will end up stuck in a broken room with no exits */
-	int roomCount = 4;
+	int roomCount = 13;
 
 	/* create the new WorldData object with 3 rooms */
 	worldData = WorldData_Create("Welcome to my GAM100 Game!\n\n", roomCount);
@@ -253,6 +310,10 @@ WorldData* CreateInitialWorldData()
 	WorldData_SetRoom(worldData, 7, Path_3_1_Build());
 	WorldData_SetRoom(worldData, 8, Path_3_2_Build());
 	WorldData_SetRoom(worldData, 9, Path_3_3_Build());
+
+	WorldData_SetRoom(worldData, 10, Answer_3_1_Build());
+	WorldData_SetRoom(worldData, 11, Answer_3_2_Build());
+	WorldData_SetRoom(worldData, 12, Answer_3_3_Build());
 
 
 	/* return the new object */
