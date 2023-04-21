@@ -169,7 +169,6 @@ Room* Path_13_mid_Build()
 	Room_AddRoomExitShortcut(room, "n", 2);
 
 	ItemList_AddItem(Room_GetItemList(room), Circle_Key_Build());
-	ItemList_AddItem(Room_GetItemList(room), Square_Key_Build());
 	ItemList_AddItem(Room_GetItemList(room), Tri_Key_Build());
 
 	/* return the new room */
@@ -311,6 +310,7 @@ Room* Answer_3_3_Build()
 
 	room = Room_Create("\n");
 	// add text for key and add key item
+	ItemList_AddItem(Room_GetItemList(room), Square_Key_Build());
 
 	Room_AddRoomExit(room, "east", 8);
 	Room_AddRoomExitShortcut(room, "e", 8);
